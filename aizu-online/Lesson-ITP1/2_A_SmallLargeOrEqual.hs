@@ -1,13 +1,27 @@
+{-- Small, Large, or Equal
+ - ２つの整数 a, b を読み込んで、a と b の大小関係を出力するプログラムを作成して下さい。
+ -
+ - Input:
+ - 入力は空白で区切られた２つの整数 a, b から構成されています。
+ - Output:
+ - a < b, a > b, a == b のいずれか
+ - Constraints:
+ - -1,000 ≤ a, b ≤ 1,000
+-}
+
 -- logic
-compareThreeInts :: [Int] -> String
-compareThreeInts i
-  | i!!0 < i!!1 && i!!1 < i!!2 = "Yes"
-  | otherwise = "No"
+compareInts :: [Int] -> String
+compareInts inNums
+  | a < b = "a < b"
+  | a == b = "a == b"
+  | otherwise = "a > b"
+  where a = inNums !! 0
+        b = inNums !! 1
 
 -- exec
 main = do
   inNum <- getInts
-  putStrLn $ compareThreeInts inNum
+  putStrLn $ compareInts inNum
 
 -- util
 getInt :: (String -> Int)
